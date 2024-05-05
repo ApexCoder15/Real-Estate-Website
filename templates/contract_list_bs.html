@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Property</title>
+  </head>
+  <body>
+    <h1>List of all contracts</h1>
+    <a href="{% url 'HomePage' %}"><button type="button">Home</button></a>
+          {% for cont in data %}
+          <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Property</h5>
+              <p class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Seller: {{cont.0}}</li>
+              <li class="list-group-item">Buyer: {{cont.1}}</li>
+            </ul>
+            <div class="card-body">
+              <a href="{% url 'DownloadContract' cont_name=cont.2 %}" class="card-link">Download this Contract</a>
+            </div>
+          </div>
+          {% endfor %}
+  </body>
+</html>

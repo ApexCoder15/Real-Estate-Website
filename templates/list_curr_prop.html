@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Property</title>
+  </head>
+  <body>
+    <h1>List of all your properties</h1>
+    <a href="{% url 'HomePage' %}"><button type="button">Home</button></a>
+          {% for prop in all_property %}
+          <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Location: {{prop.location}}</h5>
+              <p class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Price: {{prop.price}}</li>
+              <li class="list-group-item">Date Available: {{prop.date_avail}}</li>
+            </ul>
+            <div class="card-body">
+              <a href="{% url 'DeleteCurrProp' prop_id=prop.id %}" class="card-link">Delete Property</a>
+            </div>
+          </div>
+          {% endfor %}
+  </body>
+</html>

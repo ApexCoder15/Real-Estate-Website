@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verify E-mail</title>
+  </head>
+  <body>
+    <h1>E-kyc Verification.</h1>
+    <form action="{% url 'EkycVer' %}" method="post">
+        {% csrf_token %}
+        <label for="em">Enter your email: </label>
+        <input
+          id="email"
+          type="text"
+          name="email_"
+        />
+        <label for="pass">Enter Password: </label>
+        <input
+          id="password"
+          type="text"
+          name="passwd_"
+        />
+        <input type="submit" value="Verify" />
+      </form>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fcs Project</title>
+  </head>
+  <body>
+    <h1>Create Account</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign up</button>
+    </form>
+    <a href="{% url 'Logout' %}"><button type="button">Login(press after downloading private key)</button></a>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verify E-mail</title>
+  </head>
+  <body>
+    <h1>Enter the otp received to login without key.</h1>
+    <a href="{% url 'OtpSendLogin' %}"><button type="button">Send Otp again</button></a>
+    <form action="{% url 'OtpSendLogin' %}" method="post">
+        {% csrf_token %}
+        <label for="otp">Enter the OTP received: </label>
+        <input
+          id="otp"
+          type="text"
+          name="otp_field"
+        />
+        <input type="submit" value="Verify" />
+      </form>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Property</title>
+  </head>
+  <body>
+    <h1>List of all properties</h1>
+    <a href="{% url 'HomePage' %}"><button type="button">Home</button></a>
+          {% for prop in all_prop %}
+          <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              {% if prop.prop_type == "0"%}
+              <li class="list-group-item">Property Type: Land</li>
+              {% elif prop.prop_type == "1"%}
+              <li class="list-group-item">Property Type: Flat</li>
+              {% elif prop.prop_type == "2"%}
+              <li class="list-group-item">Property Type: House</li>
+              {% elif prop.prop_type == "3"%}
+              <li class="list-group-item">Property Type: Farm</li>
+              {% endif %}
+              <li class="list-group-item">Location: {{prop.location}}</li>
+              <li class="list-group-item">Price: Rs {{prop.price}}</li>
+            </ul>
+            <div class="card-body">
+              {% if prop.contract_type == "1" %}
+              <a href="{% url 'Payment' prop_id=prop.id %}" class="card-link">Buy</a>
+              {% elif prop.contract_type == "0" %}
+              <a href="{% url 'Payment' prop_id=prop.id %}" class="card-link">Rent</a>
+              {% endif %}
+              <a href="{% url 'Report' prop_id=prop.id %}" class="card-link">Report Seller</a>
+              
+            </div>
+          </div>
+          {% endfor %}
+  </body>
+</html>

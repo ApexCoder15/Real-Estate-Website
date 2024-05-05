@@ -1,0 +1,11 @@
+<h2>Buy for Rs {{ amt }}</h2>
+
+<form action="{% url 'Payment' prop_id=prop_id1%}" method = "post" >
+    {% csrf_token %}
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{ key }}"
+        data-description="Payment Gateway"
+        data-amount="500"
+        data-locale="auto">
+    </script>
+</form>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Property</title>
+  </head>
+  <body>
+    <h1>List of All Users</h1>
+    <a href="{% url 'HomePage' %}"><button type="button">Home</button></a>
+          {% for user in all_user %}
+          <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Name: {{user.name}}</h5>
+              <p class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Email: {{user.email}}</li>
+              {% if user.user_type == "0"%}
+              <li class="list-group-item">User Type: Seller/Lessor</li>
+              {% elif user.user_type == "1"%}
+              <li class="list-group-item">User Type: Buyer/Lessees</li>
+              {% endif %}
+              <li class="list-group-item">Reported: {{user.reported}}</li>
+            </ul>
+            <div class="card-body">
+              <a href="{% url 'UserDelete' user_id=user.id %}" class="card-link">Delete Account</a>
+              <a href="{% url 'RemoveReport' user_id=user.id %}" class="card-link">Remove Report</a>
+            </div>
+          </div>
+          {% endfor %}
+  </body>
+</html>

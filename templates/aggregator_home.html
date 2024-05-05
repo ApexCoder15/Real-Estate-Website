@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    <a href="{% url 'HomePage' %}"><button type="button">Home</button></a>
+    <a href="{% url 'UserList' %}"><button type="button">See all Users</button></a>
+    <a href="{% url 'AggReq' %}"><button type="button">See aggregator requests</button></a>
+    <a href="{% url 'ContractList' %}"><button type="button">See all contracts</button></a>
+    <a href="{% url 'VerifyPL' %}"><button type="button">Verify property listing blockchain</button></a>
+    <a href="{% url 'VerifyPLDB' %}"><button type="button">Verify property listing database with blockchain</button></a>
+    <a href="{% url 'Logout' %}"><button type="button">Logout</button></a>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    <a href="{% url 'AddProp' %}"><button type="button">Add Property</button></a>
+    <a href="{% url 'CurrPropList' %}"><button type="button">See your properties.</button></a>
+    <a href="{% url 'ContractSeller' %}"><button type="button">Your Contracts</button></a>
+    <a href="{% url 'Logout' %}"><button type="button">Logout</button></a>
+  </body>
+</html>
